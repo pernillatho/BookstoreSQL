@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labb2Databaser", "Labb2Databaser\Labb2Databaser.csproj", "{3AC63732-308D-41C1-821A-6A474DF6E362}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AC63732-308D-41C1-821A-6A474DF6E362}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AC63732-308D-41C1-821A-6A474DF6E362}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AC63732-308D-41C1-821A-6A474DF6E362}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AC63732-308D-41C1-821A-6A474DF6E362}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5310C1CD-E96F-468C-9216-984060C2C5CF}
+	EndGlobalSection
+EndGlobal

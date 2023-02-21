@@ -1,0 +1,298 @@
+﻿<UserControl
+    x:Class="Labb2Databaser.Views.AuthorView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Labb2Databaser.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid Name="BookStore">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="1"
+            FontSize="20"
+            FontWeight="SemiBold"
+            Text="Update Authors and Books" />
+        <Grid Column="0" Row="2">
+            <ListView
+                Grid.Row="0"
+                Margin="2"
+                ItemsSource="{Binding AuthorList, UpdateSourceTrigger=PropertyChanged}"
+                SelectedItem="{Binding SelectedAuthor, UpdateSourceTrigger=PropertyChanged}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Authors" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="Id" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Grid Column="1" Row="2">
+            <ListView
+                Grid.Row="0"
+                Margin="2"
+                ItemsSource="{Binding BookList, UpdateSourceTrigger=PropertyChanged}"
+                SelectedItem="{Binding SelectedBook, UpdateSourceTrigger=PropertyChanged}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Books" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Grid Column="1" Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="2">
+                <TextBlock Text="Title: " />
+            </Grid>
+            <Grid
+                Margin="2"
+                Column="0"
+                Row="1">
+                <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+            <Grid
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="2">
+                <TextBlock Text="Language: " />
+            </Grid>
+            <Grid
+                Margin="2"
+                Column="0"
+                Row="3">
+                <TextBox Text="{Binding Language, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+            <Grid
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="2">
+                <TextBlock Text="Price: " />
+            </Grid>
+            <Grid
+                Margin="2"
+                Column="1"
+                Row="1">
+                <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+            <Grid
+                Grid.Row="4"
+                Grid.Column="0"
+                Margin="2">
+                <TextBlock Text="ISBN:" />
+            </Grid>
+            <Grid
+                Grid.Row="5"
+                Grid.Column="0"
+                Margin="2">
+                <TextBox IsEnabled="{Binding IsReadOnly}" Text="{Binding Isbn, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+            <Grid
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="2">
+                <TextBlock Text="Release Year:" />
+            </Grid>
+            <Grid Column="1" Row="3">
+                <DatePicker SelectedDate="{Binding ReleaseYear, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+            <Grid
+                Grid.Row="4"
+                Grid.Column="1"
+                Margin="2">
+                <TextBlock Text="AuthorId: " />
+            </Grid>
+            <Grid
+                Margin="2"
+                Column="1"
+                Row="5">
+                <TextBox Text="{Binding AuthorId, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Grid>
+        <Grid Column="0" Row="4">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Button
+                    Margin="2,10,2,5"
+                    Background="RosyBrown"
+                    Command="{Binding AddNewAuthor}"
+                    FontSize="12"
+                    FontWeight="SemiBold">
+                    Add Author
+                </Button>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Button
+                    Margin="2,10,2,5"
+                    Background="RosyBrown"
+                    Command="{Binding RemoveAuthors}"
+                    FontSize="12"
+                    FontWeight="SemiBold">
+                    Remove Author
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Button
+                    Margin="2,0,2,15"
+                    Background="RosyBrown"
+                    Command="{Binding EditExistAuthor}"
+                    FontSize="12"
+                    FontWeight="SemiBold">
+                    Edit Author
+                </Button>
+            </Grid>
+        </Grid>
+        <Grid Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="2">
+                <TextBlock Text="FirstName: " />
+            </Grid>
+            <Grid
+                Margin="2"
+                Column="0"
+                Row="1">
+                <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+            <Grid
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="2">
+                <TextBlock Text="LastName: " />
+            </Grid>
+            <Grid
+                Margin="2"
+                Column="0"
+                Row="3">
+                <TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+            <Grid
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="2">
+                <TextBlock Text="DateBirth: " />
+            </Grid>
+            <Grid Column="1" Row="1">
+                <DatePicker SelectedDate="{Binding DateBirth, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Grid>
+        <Grid Column="1" Row="4">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Button
+                    Margin="2,10,2,5"
+                    Background="RosyBrown"
+                    Command="{Binding AddNewBook}"
+                    FontSize="12"
+                    FontWeight="SemiBold">
+                    Add Book
+                </Button>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Button
+                    Margin="2,10,2,5"
+                    Background="RosyBrown"
+                    Command="{Binding RemoveTitle}"
+                    FontSize="12"
+                    FontWeight="SemiBold">
+                    Remove Book
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Button
+                    Margin="2,0,2,15"
+                    Background="RosyBrown"
+                    Command="{Binding EditExistingBook}"
+                    FontSize="12"
+                    FontWeight="SemiBold">
+                    Edit Book
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Button
+                    Margin="2,0,2,15"
+                    Background="RosyBrown"
+                    Command="{Binding MainMenuCommand}"
+                    FontSize="12"
+                    FontWeight="SemiBold">
+                    Main menu
+                </Button>
+            </Grid>
+        </Grid>
+        <Grid Column="2" Row="4">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Button
+                    Margin="2,10,2,5"
+                    Background="RosyBrown"
+                    Command="{Binding ClearSelectedBook}"
+                    FontSize="12"
+                    FontWeight="SemiBold">
+                    Clear Selected Book
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
